@@ -50,8 +50,10 @@ def verify_webhook():
 def handle_webhook():
     try:
         data = request.get_json()
+        print(f"[DEBUG] Incoming payload: {json.dumps(data)}")
 
         if not data or data.get("object") != "whatsapp_business_account":
+            print(f"[DEBUG] Ignored - object type: {data.get('object') if data else 'None'}")
             return jsonify({"status": "ignored"}), 200
 
         entries = data.get("entry", [])
