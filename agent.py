@@ -153,6 +153,13 @@ A: Currently we deliver within 10 km of Andheri West. We're expanding soon!
 - Use line breaks generously for readability
 - Never use HTML or markdown headers
 
+*RESPONSE LENGTH RULES*
+- Maximum 3-4 lines per message
+- Ask ONE question at a time — never multiple questions in one message
+- Never list the full menu unless customer asks
+- Skip lengthy explanations — be direct
+- No long greetings or sign-offs
+
 ---
 
 *IMPORTANT RULES*
@@ -368,7 +375,7 @@ def chat(phone_number: str, user_message: str) -> str:
     while True:
         response = client.messages.create(
             model="claude-sonnet-4-6",
-            max_tokens=1024,
+            max_tokens=512,
             system=SYSTEM_PROMPT,
             tools=TOOLS,
             messages=messages
